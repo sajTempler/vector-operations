@@ -1,4 +1,4 @@
-import { Radian, toDegrees, toRadians, Scalar } from "./../utils";
+import { Scalar } from "./../utils";
 import { Point3D } from "./point3d";
 
 export class Vector3D {
@@ -8,6 +8,13 @@ export class Vector3D {
     readonly point1: Point3D,
     readonly point2: Point3D = new Point3D()
   ) {}
+
+  static fromArray(
+    values1: [number, number, number],
+    values2: [number, number, number] = [0, 0, 0]
+  ): Vector3D {
+    return new Vector3D(Point3D.fromArray(values1), Point3D.fromArray(values2));
+  }
 
   /**
    * Returns vectors magnitude
@@ -159,6 +166,6 @@ export class Vector3D {
         this.point2.z * vector.point2.x - this.point2.x * vector.point2.z,
         this.point2.x * vector.point2.y - this.point2.y * vector.point2.x
       )
-    )
+    );
   }
 }

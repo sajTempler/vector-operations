@@ -21,6 +21,16 @@ describe("vector 3d", () => {
       expect(vector).toEqual({ point1, point2 });
     });
 
+    test("should create 3d vector from two arrays", () => {
+      expect.assertions(1);
+
+      // test
+      const vector = Vector3D.fromArray([0, 0, 0], [1, 2, 3]);
+
+      // assert
+      expect(vector).toEqual({ point1, point2 });
+    });
+
     test("should return 3d vector's magnitude", () => {
       expect.assertions(1);
 
