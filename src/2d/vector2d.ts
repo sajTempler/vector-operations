@@ -1,8 +1,8 @@
-import { Radian, toDegrees, toRadians, Scalar, BasicVectorOperations } from "./../utils";
+import { Radian, toDegrees, toRadians, Scalar } from "./../utils";
 import { Point2D } from "./point2d";
 
-export class Vector2D implements BasicVectorOperations {
-  constructor(public point1: Point2D, public point2: Point2D = new Point2D()) {}
+export class Vector2D {
+  constructor(readonly point1: Point2D, readonly point2: Point2D = new Point2D()) {}
 
   /**
    * Returns vectors magnitude
@@ -107,9 +107,12 @@ export class Vector2D implements BasicVectorOperations {
     );
   }
 
+  /**
+   * @deprecated cross product doesn't make sense in 2d space 
+   */
   crossProduct(vector: Vector2D): Scalar {
     // |a| * |b| * sin(fi)
-    console.warn(`cross product shouldn't be used in 2d space`);
+    console.warn(`cross product doesn't make sense in 2d space`);
     const angle = this.angle(vector);
     const rad = toRadians(angle);
     const factor = -1 // todo implement factor facing left -1 facing right 1
